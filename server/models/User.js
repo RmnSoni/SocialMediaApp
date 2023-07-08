@@ -31,13 +31,6 @@ const UserSchema = new mongoose.Schema(
     occupation: String,
     viewedProfile: Number,
     impressions: Number,
-    username: {
-      type: String,
-      required: true,
-      min: 1,
-      max: 20,
-      unique: true,
-    },
   },
   { timestamps: true }
 );
