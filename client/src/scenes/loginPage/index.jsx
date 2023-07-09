@@ -1,10 +1,9 @@
-
-const LoginPage = ()=> {
+const LoginPage = () => {
   return (
     <div>
-        LoginPage
+      <h1> LoginPage</h1>
     </div>
-  )
-}
+  );
+};
 
-export default LoginPage
+export default LoginPage;
