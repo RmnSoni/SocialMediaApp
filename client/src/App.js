@@ -9,17 +9,16 @@ import { createTheme } from "@mui/material/styles";
 import { themeSettings } from "./theme";
 import NavBar from "scenes/navbar";
 
-
 function App() {
   const mode = useSelector((state) => state.mode);
-  const theme = useMemo(() =>createTheme(themeSettings(mode)), [mode]);
+  const theme = useMemo(() => createTheme(themeSettings(mode)), [mode]);
 
   return (
     <div className="app">
-      <NavBar/>
       <BrowserRouter>
         <ThemeProvider theme={theme}>
           <CssBaseline />
+          <NavBar />
           <Routes>
             <Route path="/" element={<LoginPage />} />
             <Route path="/profile/:userId" element={<ProfilePage />} />
