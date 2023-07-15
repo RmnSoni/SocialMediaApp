@@ -22,7 +22,7 @@ import {
 
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { setMode, setLogin, setLogout } from "state";
+import { setMode, setLogout } from "state";
 import { useNavigate } from "react-router-dom";
 import FlexBetween from "components/FlexBetween";
 
@@ -33,7 +33,9 @@ const NavBar = () => {
   const user = useSelector((state) => state.user);
   const isNonMobileScreens = useMediaQuery("(min-width:1000px)");
   const theme = useTheme();
-  const fullName = "Full Name";
+
+  const fullName =  user == null ? "Login Karlo" : `${user.firstName} ${user.lastName}`;
+  
 
   //colors
   const neutralLight = theme.palette.neutral.light;
@@ -49,6 +51,7 @@ const NavBar = () => {
           fontWeight="bold"
           fontSize="clamp(1rem, 2rem, 2.25rem)"
           onClick={() => navigate("/home")}
+          padding="0 1rem"
           color="primary"
           sx={{
             "&hover": {
