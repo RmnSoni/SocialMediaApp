@@ -16,11 +16,12 @@ const UserWidget = ({ userId, picturePath }) => {
   const [user, setUser] = useState(null);
   const { palette } = useTheme();
   const navigate = useNavigate();
+  const loggedInUserId = useSelector((state) => state.user._id);
   const token = useSelector((state) => state.token);
   const dark = palette.neutral.dark;
   const medium = palette.neutral.medium;
   const main = palette.neutral.main;
-
+  const [showEdit, setShowEdit] = useState(false)
   const getUser = async () => {
     const response = await fetch(`http://localhost:3001/users/${userId}`, {
       method: "GET",
@@ -28,6 +29,8 @@ const UserWidget = ({ userId, picturePath }) => {
     });
     const data = await response.json();
     setUser(data);
+    console.log(data);
+    setShowEdit(data._id===loggedInUserId);
   };
 
   useEffect(() => {
@@ -75,7 +78,7 @@ const UserWidget = ({ userId, picturePath }) => {
             <Typography color={medium}>{friends.length} friends</Typography>
           </Box>
         </FlexBetween>
-        <ManageAccountsOutlined />
+        {showEdit && <ManageAccountsOutlined />}
       </FlexBetween>
 
       <Divider />
@@ -128,7 +131,7 @@ const UserWidget = ({ userId, picturePath }) => {
               <Typography color={medium}>Social Network</Typography>
             </Box>
           </FlexBetween>
-          <EditOutlined sx={{ color: main }} />
+          {showEdit &&<EditOutlined sx={{ color: main }} />}
         </FlexBetween>
 
         <FlexBetween gap="1rem">
@@ -141,7 +144,7 @@ const UserWidget = ({ userId, picturePath }) => {
               <Typography color={medium}>Network Platform</Typography>
             </Box>
           </FlexBetween>
-          <EditOutlined sx={{ color: main }} />
+          {showEdit &&<EditOutlined sx={{ color: main }} /> }
         </FlexBetween>
       </Box>
     </WidgetWrapper>

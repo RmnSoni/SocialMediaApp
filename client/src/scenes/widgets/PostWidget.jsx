@@ -48,14 +48,15 @@ const PostWidget = ({
   };
 
   return (
-    <WidgetWrapper m="2rem 0">
+    <WidgetWrapper m="0 0 2rem 0">
       <Friend
         friendId={postUserId}
         name={name}
         subtitle={location}
         userPicturePath={userPicturePath}
+        isAddable={postUserId!==loggedInUserId}
       />
-      <Typography color={main} sx={{ mt: "1rem" }}>
+      <Typography color={main} sx={{ mt: "1rem" }} fontSize={picturePath? "1rem":'1.5rem'}>
         {description}
       </Typography>
       {picturePath && (

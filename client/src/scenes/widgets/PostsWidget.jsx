@@ -38,7 +38,7 @@ const PostsWidget = ({ userId, isProfile = false }) => {
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
-    <>
+    <div className ="negetive-margin">
       {posts.map(
         ({
           _id,
@@ -66,7 +66,7 @@ const PostsWidget = ({ userId, isProfile = false }) => {
           />
         )
       )}
-    </>
+    </div>
   );
 };
 
