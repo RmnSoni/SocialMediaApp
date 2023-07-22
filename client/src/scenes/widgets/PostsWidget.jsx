@@ -36,10 +36,10 @@ const PostsWidget = ({ userId, isProfile = false }) => {
       getPosts();
     }
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
-
+if (posts && Array.isArray(posts)){
   return (
-    <div className ="negetive-margin">
-      {posts.map(
+    <div>
+      {posts!=null && posts.map(
         ({
           _id,
           userId,
@@ -67,7 +67,8 @@ const PostsWidget = ({ userId, isProfile = false }) => {
         )
       )}
     </div>
-  );
+  );}
+  return <p>Posts are Loading</p>
 };
 
 export default PostsWidget;
