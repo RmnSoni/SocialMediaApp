@@ -19,7 +19,6 @@ import {
   useTheme,
   useMediaQuery,
 } from "@mui/material";
-
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setMode, setLogout } from "state";
@@ -33,7 +32,6 @@ const NavBar = () => {
   const user = useSelector((state) => state.user);
   const isNonMobileScreens = useMediaQuery("(min-width:1000px)");
   const theme = useTheme();
-
   const fullName =  user == null ? "Login Karlo" : `${user.firstName} ${user.lastName}`;
   
 

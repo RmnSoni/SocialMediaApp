@@ -3,7 +3,7 @@ import Form from "./Form";
 
 const LoginPage = () => {
   const theme = useTheme();
-  const isNonMobileScreens = useMediaQuery("(min-width:1000px)");
+  const isNonMobileScreens = useMediaQuery("(min-width: 1000px)");
   return (
     <Box>
       <Box
@@ -12,14 +12,11 @@ const LoginPage = () => {
         p="1rem 6%"
         textAlign="center"
       >
-        <Typography
-          fontWeight="bold"
-          fontSize="clamp(1rem, 2rem, 2.25rem)"
-          color="primary"
-        >
-          Sharesphere
+        <Typography fontWeight="bold" fontSize="32px" color="primary">
+          Sharespeare
         </Typography>
       </Box>
+
       <Box
         width={isNonMobileScreens ? "50%" : "93%"}
         p="2rem"
@@ -35,5 +32,3 @@ const LoginPage = () => {
     </Box>
   );
 };
-
-export default LoginPage;
